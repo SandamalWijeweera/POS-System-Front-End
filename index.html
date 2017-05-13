@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Responsive POS</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/styles.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <!--<link href="css/plugins/morris.css" rel="stylesheet">-->
+
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                        <ul class="dropdown-menu message-dropdown">
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><strong>Alert</strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Today at 10:o6 AM</p>
+                                            <p>Missed call from 1717</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><strong>Ijse</strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                            <p>Absd responsive viva held in tomorrow</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="message-footer">
+                                <a href="#">Read All</a>
+                            </li>
+                        </ul>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                        <ul class="dropdown-menu alert-dropdown">
+                            <li>
+                                <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">View All</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> SW 96 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                        <li id="dash" class="active" onclick="addActiveClass();">
+                            <a href="javascript:;" onclick="loadDiv('dashboard-div');"><i class="fa fa-fw fa-dashboard fa-2x"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#customerpanel"><i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;Customers<i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="customerpanel" class="collapse">
+                                <li id="nc" onclick="addActiveClass('nc');">
+                                    <a id="x" onclick="loadDiv('newcustomer-div');"><i class="fa fa-user-plus"></i> New Customer</a>
+                                </li>
+                                <li id="ec" onclick="addActiveClass();">
+                                    <a href="#" onclick="loadDiv('editcustomer-div')"><i class="fa fa-user-md"></i> &nbsp;Edit Customer</a>
+                                </li>
+                                <li id="rc" onclick="addActiveClass();">
+                                    <a href="#" onclick="loadDiv('remcustomer-div')"><i class="fa fa-user-times"></i> Remove Customer</a>
+                                </li>
+                                <li onclick="addActiveClass();">
+                                    <a id="ac" onclick="loadDiv('allcustomer-div')"><i class="fa fa-users"></i> &nbsp;All Customers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a  href="javascript:;" data-toggle="collapse" data-target="#itempanel"><i class="fa fa-fw fa-table fa-2x"></i> &nbsp;Items<i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="itempanel" class="collapse">
+                                <li id="ni" onclick="addActiveClass();">
+                                    <a onclick="loadDiv('newitem-div');"><i class="fa fa-plus"></i> New Item</a>
+                                </li>
+                                <li id="ei" onclick="addActiveClass();">
+                                    <a href="#" onclick="loadDiv('edititem-div');"><i class="fa fa-upload"></i> Edit Item</a>
+                                </li>
+                                <li id="ri" onclick="addActiveClass();">
+                                    <a href="#" onclick="loadDiv('removeitem-div');"><i class="fa fa-times"></i>&nbsp; Remove Item</a>
+                                </li>
+                                <li id="ai" onclick="addActiveClass()'">
+                                    <a href="#" onclick="loadDiv('allitem-div')"> <i class="fa fa-fw fa-table"></i> All Items</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="no" onclick="addActiveClass();">
+                            <a onclick="loadDiv('neworder-div');"><i class="fa fa-shopping-cart fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;New Order</a>
+                        </li>
+                        <li id="o" onclick="addActiveClass();">
+                            <a onclick="loadDiv('vieworder-div');"><i class="fa fa-cart-plus fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;Orders</a>
+                        </li>
+                        <li id="r" onclick="addActiveClass();">
+                            <a onclick="loadDiv('dashboard-div');"><i class="fa fa-bar-chart fa-2x"></i> &nbsp;&nbsp;&nbsp;Reports</a>
+                        </li>    
+                        <li onclick="addActiveClass();" style="height: 20em;"></li>
+                        <li>
+                            <a onclick="loadDiv('dashboard-div');"><i class="fa fa-cog fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;Settings</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+
+            <div id="page-wrapper">
+
+                <div class="container-fluid">
+
+                    <!-- DashBoard Div -->
+                    <div id="dashboard-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-dashboard"></i> Dashboard
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <!-- Customer and item Search -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div id="divCusSearchBox" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Search Customer</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="frmSearchCustomer" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="input-group mypanels">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" value="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name
+                                                            <i class="fa fa-fw fa-caret-down"></i></button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">NIC</a>
+                                                            <a class="dropdown-item" href="#">Name</a>
+                                                            <a class="dropdown-item" href="#">Mobile</a>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Input Search Text ...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-secondary" type="button">Go!</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div id="divCusSearchBox" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Search Item</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="frmSearchCustomer" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="input-group mypanels">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Code
+                                                            <i class="fa fa-fw fa-caret-down"></i></button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Code</a>
+                                                            <a class="dropdown-item" href="#">Name</a>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Input Search Text ...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-secondary" type="button">Go!</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Customer Details -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped" style>
+                                        <thead>
+                                            <tr style="vertical-align: central;">
+                                                <th>NIC</th>
+                                                <th>Name</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>960471032V</td>
+                                                <td>Sandamal Wijeweera</td>
+                                                <td>0767947974</td>
+                                                <td>Gintota</td>
+                                            </tr>
+                                            <tr>
+                                                <td>969655656V</td>
+                                                <td>Damindu Aluthala</td>
+                                                <td>07677376519</td>
+                                                <td>Galle</td>
+                                            </tr>
+                                            <tr>
+                                                <td>785432409V</td>
+                                                <td>Kumuduni Kariyawasam</td>
+                                                <td>0710416565</td>
+                                                <td>Hikkaduwa</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Item Details -->
+                            <!-- Customer Details -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Code</th>
+                                                <th>Item Name</th>
+                                                <th>Quantity</th>
+                                                <th>Unit Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>I002</td>
+                                                <td>Keeri Samba 10kg</td>
+                                                <td>15</td>
+                                                <td>550</td>
+                                            </tr>
+                                            <tr>
+                                                <td>I004</td>
+                                                <td>Saman 500g</td>
+                                                <td>12</td>
+                                                <td>145</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-comments fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">26</div>
+                                                <div>New Comments!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-tasks fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">12</div>
+                                                <div>New Tasks!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">124</div>
+                                                <div>New Orders!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-support fa-5x"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge">13</div>
+                                                <div>Support Tickets!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <span class="pull-left">View Details</span>
+                                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="morris-area-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="morris-donut-chart"></div>
+                                        <div class="text-right">
+                                            <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">just now</span>
+                                                <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">4 minutes ago</span>
+                                                <i class="fa fa-fw fa-comment"></i> Commented on a post
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">23 minutes ago</span>
+                                                <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">46 minutes ago</span>
+                                                <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">1 hour ago</span>
+                                                <i class="fa fa-fw fa-user"></i> A new user has been added
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">2 hours ago</span>
+                                                <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">yesterday</span>
+                                                <i class="fa fa-fw fa-globe"></i> Saved the world
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <span class="badge">two days ago</span>
+                                                <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+                                            </a>
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Order #</th>
+                                                        <th>Order Date</th>
+                                                        <th>Order Time</th>
+                                                        <th>Amount (USD)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>3326</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>3:29 PM</td>
+                                                        <td>$321.33</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3325</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>3:20 PM</td>
+                                                        <td>$234.34</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3324</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>3:03 PM</td>
+                                                        <td>$724.17</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3323</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>3:00 PM</td>
+                                                        <td>$23.71</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3322</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>2:49 PM</td>
+                                                        <td>$8345.23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3321</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>2:23 PM</td>
+                                                        <td>$245.12</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3320</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>2:15 PM</td>
+                                                        <td>$5663.54</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3319</td>
+                                                        <td>10/21/2013</td>
+                                                        <td>2:13 PM</td>
+                                                        <td>$943.45</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+
+                    <!-- End of Dashboard Div -->
+                    <!------------------------------------------------------>
+
+                    <!-- New Customer div-->
+                    <div id="newcustomer-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-users"></i> Customers / <strong> New Customer </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">New Customer</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">First Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></span>
+                                                        <input id="firstName"  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Last Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="lastName" name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">NIC</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-id-card-o ico-size" aria-hidden="true"></i></span>
+                                                        <input id="nic" name="nic" placeholder="NIC" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">E-Mail</label> 
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-envelope ico-size" aria-hidden="true"></i></span>
+                                                        <input id="email" name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Phone #</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-mobile ico-size ico-size" aria-hidden="true"></i></span>
+                                                        <input id="mobile" name="phone" placeholder="xxx-xxx-xxxx" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Address</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-address-card ico-size" aria-hidden="true"></i></span>
+                                                        <input id="address" name="address" placeholder="Address" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">City</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-home ico-size" aria-hidden="true"></i></span>
+                                                        <input id="city" name="city" placeholder="City" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newCustBtn" onclick="newCust();" type="button" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Register</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 32em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- End of New Customer-->
+
+                    <!----------------------------------------------------->
+
+                    <!-- Remove Customer div-->
+                    <div id="remcustomer-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-users"></i> Customers / <strong> Remove Customer </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Remove Customer</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">First Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></span>
+                                                        <input id="firstNamed"  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Last Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="lastName" name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">NIC</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-id-card-o ico-size" aria-hidden="true"></i></span>
+                                                        <input id="nic" name="nic" placeholder="NIC" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">E-Mail</label> 
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-envelope ico-size" aria-hidden="true"></i></span>
+                                                        <input id="email" name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Phone #</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-mobile ico-size ico-size" aria-hidden="true"></i></span>
+                                                        <input id="mobile" name="phone" placeholder="xxx-xxx-xxxx" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Address</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-address-card ico-size" aria-hidden="true"></i></span>
+                                                        <input id="address" name="address" placeholder="Address" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">City</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-home ico-size" aria-hidden="true"></i></span>
+                                                        <input id="city" name="city" placeholder="City" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newCustBtn" onclick="remCust();" type="button" class="btn btn-danger"><i class="fa fa-paper-plane" aria-hidden="true"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 32em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Remove Customer-->
+
+                    <!----------------------------------------------------->
+
+                    <!-- Edit Customer div-->
+                    <div id="editcustomer-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-users"></i> Customers / <strong> Modify Customer </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Modify Customer</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">First Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></span>
+                                                        <input id="firstName"  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Last Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="lastName" name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">NIC</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-id-card-o ico-size" aria-hidden="true"></i></span>
+                                                        <input id="nic" name="nic" placeholder="NIC" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">E-Mail</label> 
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-envelope ico-size" aria-hidden="true"></i></span>
+                                                        <input id="email" name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Phone #</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-mobile ico-size ico-size" aria-hidden="true"></i></span>
+                                                        <input id="mobile" name="phone" placeholder="xxx-xxx-xxxx" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Address</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-address-card ico-size" aria-hidden="true"></i></span>
+                                                        <input id="address" name="address" placeholder="Address" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">City</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-home ico-size" aria-hidden="true"></i></span>
+                                                        <input id="city" name="city" placeholder="City" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newCustBtn" onclick="newCust();" type="button" class="btn btn-warning"><i class="fa fa-paper-plane" aria-hidden="true"></i> Modify </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 32em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Edit Customer-->
+
+                    <!----------------------------------------------------->
+
+                    <!-- All Customer div -->
+
+                    <div id="allcustomer-div">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="divCusSearchBox" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Search Customer</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="frmSearchCustomer" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="input-group mypanels">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" value="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name
+                                                            <i class="fa fa-fw fa-caret-down"></i></button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">NIC</a>
+                                                            <a class="dropdown-item" href="#">Name</a>
+                                                            <a class="dropdown-item" href="#">Mobile</a>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Input Search Text ...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-secondary" type="button">Go!</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped" style>
+                                        <thead>
+                                            <tr style="vertical-align: central;">
+                                                <th>NIC</th>
+                                                <th>Name</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>960471032V</td>
+                                                <td>Sandamal Wijeweera</td>
+                                                <td>0767947974</td>
+                                                <td>Gintota</td>
+                                            </tr>
+                                            <tr>
+                                                <td>969655656V</td>
+                                                <td>Damindu Aluthala</td>
+                                                <td>07677376519</td>
+                                                <td>Galle</td>
+                                            </tr>
+                                            <tr>
+                                                <td>785432409V</td>
+                                                <td>Kumuduni Kariyawasam</td>
+                                                <td>0710416565</td>
+                                                <td>Hikkaduwa</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="height: 70.4em;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of All Customer div -->
+                    <!------------------------------------------------------->
+                    <!--New Item Div-->
+
+                    <div id="newitem-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-table"></i> Items / <strong> New Item </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">New Item</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Item Code</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-table ico-size" aria-hidden="true"></i></span>
+                                                        <input id="code" name="code" placeholder="Item Code" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Item Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="name" name="name" placeholder="Item Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Quantity</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-sort-amount-desc ico-size" aria-hidden="true"></i></span>
+                                                        <input id="qty" name="qty" placeholder="Quantity" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Active</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-check ico-size" aria-hidden="true"></i></span>
+                                                        <input type="checkbox" name="active" class="form-control" value="Active">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Unit Price</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-money ico-size" aria-hidden="true"></i></span>
+                                                        <input id="price" name="price" placeholder="Price" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newItemBtn" onclick="newItem();" type="button" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Register</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 38.7em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End of New Item Div-->
+                    <!------------------------------------------------------->
+
+                    <!--Edit Item Div-->
+
+                    <div id="edititem-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-table"></i> Items / <strong> New Item </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">New Item</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Item Code</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-table ico-size" aria-hidden="true"></i></span>
+                                                        <input id="code" name="code" placeholder="Item Code" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Item Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="name" name="name" placeholder="Item Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Quantity</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-sort-amount-desc ico-size" aria-hidden="true"></i></span>
+                                                        <input id="qty" name="qty" placeholder="Quantity" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Active</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-check ico-size" aria-hidden="true"></i></span>
+                                                        <input type="checkbox" name="active" class="form-control" value="Active">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Unit Price</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-money ico-size" aria-hidden="true"></i></span>
+                                                        <input id="price" name="price" placeholder="Price" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newItemBtn" onclick="newItem();" type="button" class="btn btn-warning"><i class="fa fa-paper-plane" aria-hidden="true"></i> Modify</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 38.7em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Edit Item Div-->
+                    <!------------------------------------------------------->
+                    
+                    <!--New Item Div-->
+
+                    <div id="removeitem-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-table"></i> Items / <strong> New Item </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">New Item</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="" class="form-horizontal">
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Item Code</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-table ico-size" aria-hidden="true"></i></span>
+                                                        <input id="coded" name="code" placeholder="Item Code" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label" >Item Name</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info ico-size" aria-hidden="true"></i></i></span>
+                                                        <input id="name" name="name" placeholder="Item Name" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Quantity</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-sort-amount-desc ico-size" aria-hidden="true"></i></span>
+                                                        <input id="qty" name="qty" placeholder="Quantity" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Active</label>  
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-check ico-size" aria-hidden="true"></i></span>
+                                                        <input type="checkbox" name="active" class="form-control" value="Active">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Unit Price</label>
+                                                <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-money ico-size" aria-hidden="true"></i></span>
+                                                        <input id="price" name="price" placeholder="Price" class="form-control"  type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Button -->
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8"></div>
+                                                <div class="">
+                                                    <button id="newItemBtn" onclick="remItem();" type="button" class="btn btn-danger"><i class="fa fa-paper-plane" aria-hidden="true"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="height: 38.7em;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Remove Item Div-->
+                    <!------------------------------------------------------->
+
+                    <!-- All Item div -->
+                    <div id="allitem-div">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="divCusSearchBox" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Search Item</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form id="frmSearchCustomer" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="input-group mypanels">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" value="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name
+                                                            <i class="fa fa-fw fa-caret-down"></i></button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Code</a>
+                                                            <a class="dropdown-item" href="#">Name</a>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Input Search Text ...">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-secondary" type="button">Go!</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped" style>
+                                        <thead>
+                                            <tr>
+                                                <th>Code</th>
+                                                <th>Item Name</th>
+                                                <th>Quantity</th>
+                                                <th>Unit Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>I002</td>
+                                                <td>Keeri Samba 10kg</td>
+                                                <td>15</td>
+                                                <td>550</td>
+                                            </tr>
+                                            <tr>
+                                                <td>I004</td>
+                                                <td>Saman 500g</td>
+                                                <td>12</td>
+                                                <td>145</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="height: 70.5em;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of All Item div -->
+                    <!------------------------------------------------------->
+
+                    <!--Place Order Div-->
+
+                    <div id="neworder-div">
+                        <!-- Page Heading -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-cart-plus"></i> <strong>New Order </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Place Order</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div id="" class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">Select Item</h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <form id="" class="form-horizontal">
+
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Item Name</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-info ico-size" aria-hidden="true"></i></span>
+                                                                    <select id="cmitem" class="form-control">
+                                                                        <option> keeri Samba 10kg</option>
+                                                                        <option> Saman 500g</option>
+                                                                        <option> Dhaal</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Item Code</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-table ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="icode" placeholder="Item Code" class="form-control"  type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Quantity</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-sort ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="qty" placeholder="Qty" class="form-control"  type="number">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Unit Price</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-money ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="code" placeholder="Unit Price" class="form-control"  type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7"></div>
+                                                            <div class="col-md-1 col-lg-1 col-xs-1 col-sm-1 inputGroupContainer">
+                                                                <button class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Select </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div id="" class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">Customer Details</h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <form id="" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Customer Name</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></span>
+                                                                    <select id="cmbname" class="form-control">
+                                                                        <option> Sandamal Wijeweera</option>
+                                                                        <option> Thisara Nuwan</option>
+                                                                        <option> Kamal Deshapriya</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Address</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-home ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="address" placeholder="Address" value="Galle" class="form-control"  type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Mobile</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-mobile ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="code" placeholder="Mobile" value="0767947974" class="form-control"  type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Salary</label>
+                                                            <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-money ico-size" aria-hidden="true"></i></span>
+                                                                    <input  name="salary" placeholder="Salary" value="45800.00" class="form-control"  type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7"></div>
+                                                            <div class="inputGroupContainer">
+                                                                <button class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Select </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div id="" class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">Invoice</h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row form-group">
+                                                        <label class="col-md-1 col-lg-1 col-sm-1 col-xs-1 control-label">Invoice NO:</label>
+                                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="fa fa-cart-arrow-down ico-size" aria-hidden="true"></i></span>
+                                                                <input  name="icode" placeholder="Invoice NO" value="I000007656" class="form-control"  type="text">
+                                                            </div>
+                                                        </div>
+                                                        <label class="col-md-1 col-lg-1 col-sm-1 col-xs-1 control-label">Date</label>
+                                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="fa fa-calendar ico-size" aria-hidden="true"></i></span>
+                                                                <input  name="" placeholder="" class="form-control" value="2017 - 04 - 29"  type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <label class="col-md-1 col-lg-1 col-sm-1 col-xs-1 control-label"> Cashier</label>
+                                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+                                                        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="fa fa-user ico-size" aria-hidden="true"></i></span>
+                                                                <input  name="" placeholder="" value="Kumudunie" class="form-control"  type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-hover table-striped">
+                                                            <tr>
+                                                                <th>Item Code</th> 
+                                                                <th>Item Name</th> 
+                                                                <th>Item Description</th> 
+                                                                <th>Qty</th> 
+                                                                <th>Unit Price</th>
+                                                                <th>Discount</th>
+                                                                <th>Sub Total</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>I001</td>
+                                                                <td>Keeri Samba 100kg</td>
+                                                                <td>Samba</td>
+                                                                <td>2</td>
+                                                                <td>500</td>
+                                                                <td>0</td>
+                                                                <td>1000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>I022</td>
+                                                                <td>Saman 500g</td>
+                                                                <td>Saman</td>
+                                                                <td>12</td>
+                                                                <td>100</td>
+                                                                <td>0</td>
+                                                                <td>1200</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11"></div>
+                                                        <div class=" inputGroupContainer">
+                                                            <button class="btn btn-primary"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Add to Cart </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="height: 9.7em;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--End of Place Order Div-->
+                    <!------------------------------------------------------->
+
+                    <!--View Order Div-->
+                    <div id="vieworder-div">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-table"></i> Orders / <strong> Search Order </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="" class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">Orders</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <form id="" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="input-group mypanels">
+                                                        <div class="input-group-btn">
+                                                            <button type="button" class="btn btn-secondary dropdown-toggle" value="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name
+                                                                <i class="fa fa-fw fa-caret-down"></i></button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">NIC</a>
+                                                                <a class="dropdown-item" href="#">Name</a>
+                                                                <a class="dropdown-item" href="#">Order ID</a>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" class="form-control" placeholder="Input Search Text ...">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-secondary" type="button">Go!</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover table-striped" style>
+                                                    <thead>
+                                                        <tr style="vertical-align: central;">
+                                                            <th>NIC</th>
+                                                            <th>Name</th>
+                                                            <th>Mobile</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>960471032V</td>
+                                                            <td>Sandamal Wijeweera</td>
+                                                            <td>0767947974</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>969655656V</td>
+                                                            <td>Damindu Aluthala</td>
+                                                            <td>07677376519</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>785432409V</td>
+                                                            <td>Kumuduni Kariyawasam</td>
+                                                            <td>0710416565</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><hr style="height: 2px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover table-striped">
+                                                    <tr>
+                                                        <th>Item Code</th> 
+                                                        <th>Item Name</th> 
+                                                        <th>Item Description</th> 
+                                                        <th>Qty</th> 
+                                                        <th>Unit Price</th>
+                                                        <th>Discount</th>
+                                                        <th>Sub Total</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I001</td>
+                                                        <td>Keeri Samba 100kg</td>
+                                                        <td>Samba</td>
+                                                        <td>2</td>
+                                                        <td>500</td>
+                                                        <td>0</td>
+                                                        <td>1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I022</td>
+                                                        <td>Saman 500g</td>
+                                                        <td>Saman</td>
+                                                        <td>12</td>
+                                                        <td>100</td>
+                                                        <td>0</td>
+                                                        <td>1200</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row" style="height: 16em;">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!--End of View Order Div-->
+                    <!------------------------------------------------------->
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="js/possystem.js"></script>
+        <script src="js/plugins/morris/raphael.min.js"></script>
+        <script src="js/plugins/morris/morris.min.js"></script>
+        <script src="js/plugins/morris/morris-data.js"></script>
+
+    </body>
+
+</html>
